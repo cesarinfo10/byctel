@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_DatosFrecuentes" value="name:idContador;datatype:int,name:strEmail;datatype:string,name:strPassword;datatype:string,name:strNombre;datatype:string,name:intNivel;datatype:int,name:strCookie;datatype:string" />
+</info>

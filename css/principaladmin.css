@@ -1,0 +1,548 @@
+@charset "utf-8";
+body {
+	margin: 0;
+	padding: 0;
+	color: #333;
+	background-repeat: no-repeat;
+	background-position: center center;
+	font-family:'Roboto Condensed', sans-serif;
+	font-size: 14px;
+	line-height: normal;
+	background-color: #FFF;
+}
+
+/* ~~ Selectores de elemento/etiqueta ~~ */
+ul, ol, dl { /* Debido a las diferencias existentes entre los navegadores, es recomendable no añadir relleno ni márgenes en las listas. Para lograr coherencia, puede especificar las cantidades deseadas aquí o en los elementos de lista (LI, DT, DD) que contienen. Recuerde que lo que haga aquí se aplicará en cascada en la lista .nav, a no ser que escriba un selector más específico. */
+	padding: 0;
+	margin: 0;
+}
+ h3, h4, h5, h6,{
+	margin-top: 0;	 /* la eliminación del margen superior resuelve un problema que origina que los márgenes escapen de la etiqueta div contenedora. El margen inferior restante lo mantendrá separado de los elementos de que le sigan. */
+	padding-right: 15px;
+	padding-left: 0px; /* la adición de relleno a los lados del elemento dentro de las divs, en lugar de en las divs propiamente dichas, elimina todas las matemáticas de modelo de cuadro. Una div anidada con relleno lateral también puede usarse como método alternativo. */
+	font-size: 13px;
+}
+p{
+	margin: 0px;
+	padding: 0px;
+	} 
+a img { /* este selector elimina el borde azul predeterminado que se muestra en algunos navegadores alrededor de una imagen cuando está rodeada por un vínculo */
+	border: none;
+}
+h1{
+	font-size: 24px;
+	color: #06F;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	text-shadow: 0.1em 0.1em 0.15em #333; 
+	}
+h2{
+	font-size: 15px;
+	color: #900;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	text-shadow: 0.1em 0.1em 0.15em #333;
+	}
+/* ~~ La aplicación de estilo a los vínculos del sitio debe permanecer en este orden (incluido el grupo de selectores que crea el efecto hover -paso por encima-). ~~ */
+a{
+	color: #1b7ec3;
+	text-decoration: none;
+}
+a:hover{
+	color: #13659c;
+	text-decoration: none;
+}
+
+/* ~~ este contenedor de anchura fija rodea a las demás divs ~~ */
+.container {
+	width: 100%;
+	background-color: #FFF; /* el valor automático de los lados, unido a la anchura, centra el diseño */
+	margin-top: 0;
+	margin-right: auto;
+	margin-bottom: 0;
+	margin-left: auto;
+}
+
+/* ~~ no se asigna una anchura al encabezado. Se extenderá por toda la anchura del diseño. Contiene un marcador de posición de imagen que debe sustituirse por su propio logotipo vinculado ~~ */
+.header {
+	background-image: url(../images/fondo.jpg);
+	background-repeat: repeat-x;
+	background-position: center top;
+
+}
+
+/* ~~ Estas son las columnas para el diseño. ~~ 
+
+1) El relleno sólo se sitúa en la parte superior y/o inferior de las divs. Los elementos situados dentro de estas divs tienen relleno a los lados. Esto le ahorra las "matemáticas de modelo de cuadro". Recuerde que si añade relleno o borde lateral a la div propiamente dicha, éste se añadirá a la anchura que defina para crear la anchura *total*. También puede optar por eliminar el relleno del elemento en la div y colocar una segunda div dentro de ésta sin anchura y el relleno necesario para el diseño deseado. También puede optar por eliminar el relleno del elemento en la div y colocar una segunda div dentro de ésta sin anchura y el relleno necesario para el diseño deseado.
+
+2) No se asigna margen a las columnas, ya que todas ellas son flotantes. Si es preciso añadir un margen, evite colocarlo en el lado hacia el que se produce la flotación (por ejemplo: un margen derecho en una div configurada para flotar hacia la derecha). En muchas ocasiones, puede usarse relleno como alternativa. En el caso de divs para las que deba incumplirse esta regla, deberá añadir una declaración "display:inline" a la regla de la div para evitar un error que provoca que algunas versiones de Internet Explorer dupliquen el margen.
+
+3) Dado que las clases se pueden usar varias veces en un documento (y que también se pueden aplicar varias clases a un elemento), se ha asignado a las columnas nombres de clases en lugar de ID. Por ejemplo, dos divs de barra lateral podrían apilarse si fuera necesario. Si lo prefiere, éstas pueden cambiarse a ID fácilmente, siempre y cuando las utilice una sola vez por documento.
+
+4) Si prefiere que la navegación esté a la derecha en lugar de a la izquierda, simplemente haga que estas columnas floten en dirección opuesta (todas a la derecha en lugar de todas a la izquierda) y éstas se representarán en orden inverso. No es necesario mover las divs por el código fuente HTML.
+
+*/
+.sidebar1 {
+	float: left;
+	background-color: #FFF;
+	border: 1px solid #999999;
+	width: 140px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	box-shadow: inset 0 0 8px #dcddde;
+	-moz-box-shadow: inset 0 0 8px #dcddde;
+	-webkit-box-shadow: inset 0 0 8px #dcddde;
+	background-image: url(../images/fondo.jpg);
+	background-repeat: repeat-x;
+	background-position: center top;
+	margin-right: 10px;
+	padding: 10px;
+	font-size: 13px;
+	color: #8D8A95;
+	right: 10px;
+}
+.content {
+	width: 780px;
+	float: left;
+	background-color: #FFF;
+	border: 1px solid #CCCCCC;
+	width: 80%;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	/*box-shadow: inset 0 0 8px #dcddde;
+	-moz-box-shadow: inset 0 0 8px #dcddde;
+	-webkit-box-shadow: inset 0 0 8px #dcddde;*/
+	background-image: url(../images/fondo.jpg);
+	background-repeat: repeat-x;
+	background-position: center top;
+	color: #666;
+	margin: 0px;
+	padding: 0px;
+	clip: rect(auto,100px,auto,auto);
+}
+
+/* ~~ Este selector agrupado da espacio a las listas del área de .content ~~ */
+.content ul, .content ol { 
+	padding: 0 15px 15px 40px; /* este relleno reproduce en espejo el relleno derecho de la regla de encabezados y de párrafo incluida más arriba. El relleno se ha colocado en la parte inferior para que el espacio existente entre otros elementos de la lista y a la izquierda cree la sangría. Estos pueden ajustarse como se desee. */
+}
+
+/* ~~ Los estilos de lista de navegación (pueden eliminarse si opta por usar un menú desplegable predefinido como el de Spry) ~~ */
+ul.nav {
+	list-style: none; /* esto elimina el marcador de lista */
+	border-top: 1px solid #666; /* esto crea el borde superior de los vínculos (los demás se sitúan usando un borde inferior en el LI) */
+	margin-bottom: 15px; /* esto crea el espacio entre la navegación en el contenido situado debajo */
+}
+ul.nav li {
+	border-bottom: 1px solid #666; /* esto crea la separación de los botones */
+}
+ul.nav a, ul.nav a:visited { /* al agrupar estos selectores, se asegurará de que los vínculos mantengan el aspecto de botón incluso después de haber sido visitados */
+	padding: 5px 5px 5px 15px;
+	display: block; /* esto asigna propiedades de bloque al vínculo, lo que provoca que llene todo el LI que lo contiene. Esto provoca que toda el área reaccione a un clic de ratón. */
+	width: 160px;  /*esta anchura hace que se pueda hacer clic en todo el botón para IE6. Puede eliminarse si no es necesario proporcionar compatibilidad con IE6. Calcule la anchura adecuada restando el relleno de este vínculo de la anchura del contenedor de barra lateral. */
+	text-decoration: none;
+	background-color: #C6D580;
+}
+ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* esto cambia el color de fondo y del texto tanto para usuarios que naveguen con ratón como para los que lo hagan con teclado */
+	background-color: #ADB96E;
+	color: #FFF;
+}
+
+/* ~~ El pie de página ~~ */
+.footer {
+	position: relative;/* esto da a IE6 hasLayout para borrar correctamente */
+	clear: both; /* esta propiedad de borrado fuerza a .container a conocer dónde terminan las columnas y a contenerlas */
+	background-color: #FFF;
+	border: 1px solid #CCCCCC;
+	width: 100%;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	background-image: url(../images/fondo.jpg);
+	background-repeat: repeat-x;
+	background-position: center top;
+	padding-top: 10px;
+	padding-right: 0;
+	padding-bottom: 10px;
+	padding-left: 0;
+	top: 10px;
+}
+
+/* ~~ clases float/clear varias ~~ */
+.fltrt {  /* esta clase puede utilizarse para que un elemento flote en la parte derecha de la página. El elemento flotante debe preceder al elemento junto al que debe aparecer en la página. */
+	float: right;
+	margin-left: 8px;
+}
+.fltlft { /* esta clase puede utilizarse para que un elemento flote en la parte izquierda de la página. El elemento flotante debe preceder al elemento junto al que debe aparecer en la página. */
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat { /* esta clase puede situarse en una <br /> o div vacía como elemento final tras la última div flotante (dentro de #container) si #footer se elimina o se saca fuera de #container */
+	clear:both;
+	height:0;
+	font-size: 1px;
+	line-height: 0px;
+}
+.boton {
+	background-color: #0066FF;
+	border: 1px solid #6D0306;
+	color: #fff;
+	text-align: center;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	padding: 8px;
+	min-width: 110px;
+}
+.boton:hover {
+	background-color: #000066;
+	color: #fff;
+	cursor: pointer;
+}
+.botonverde{
+	border: 1px solid #6D0306;
+	color: #fff;
+	text-align: center;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	background-color: #007900;
+	border: 1px solid #022B10;
+	}
+.botonrojo{
+	border: 1px solid #6D0306;
+	color: #fff;
+	text-align: center;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	background-color: #FF0000;
+	border: 1px solid #8A0000;
+	}
+.botonverde:hover{
+	background-color: #00C600;
+	}
+.botonrojo:hover{
+	background-color: #FF6464;
+	}
+.campo{
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	padding: 5px;
+	width: 200px;
+	border: 1px solid #EEE;
+}
+.capaerrores{
+	display: none;
+	font-size: 12px;
+	background-color: #FF9797;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	color: #000;
+	margin-top: 3px;
+	font-weight: 100;
+	background-image: url(../images/iconos/error.png);
+	background-repeat: no-repeat;
+	background-position: left top;
+	padding-top: 5px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	padding-left: 25px;
+	width: 182px
+	}
+.capaexito{
+	display: none;
+	font-size: 12px;
+	background-color: #43E75B;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	color: #030;
+	padding: 5px;
+	margin-top: 3px;
+	font-weight: 100;
+	background-image: url(../images/iconos/check.png);
+	background-repeat: no-repeat;
+	background-position: left top;
+	padding-top: 5px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	padding-left: 25px;
+	width: 182px
+}
+.capafrecuentes{
+	font-size: 12px;
+	background-color: #D9D7D7;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	color: #333;
+	padding: 5px;
+	margin-top: 3px;
+	font-weight: 100;
+	border-top-color: #999;
+	border-right-color: #999;
+	border-bottom-color: #999;
+	border-left-color: #999;
+}
+.lateralnewboxes{
+	color: #06F;	
+	}
+#boira { 
+    left:0; 
+    top:0; 
+    z-index:1; 
+    position: fixed; 
+    display: none;  
+    margin: auto; 
+    width: 100%; 
+    height: 100%; 
+    color: white; 
+    background: black; 
+    filter: alpha(opacity=50); opacity: 0.5; -moz-opacity: 0.50 
+}
+#espaiFlotant {
+	z-index: 2;
+	top: 50%;
+	left: 50%;
+	width: 450px;
+	margin-left: -250px;
+	height: 300px;
+	margin-top: -250px;
+	position: fixed;
+	display: none;
+	vertical-align: top;
+	padding: 5px;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	box-shadow: inset 0 0 8px #dcddde;
+	-moz-box-shadow: inset 0 0 8px #dcddde;
+	-webkit-box-shadow: inset 0 0 8px #dcddde;
+	background-repeat: repeat-x;
+	background-position: center top;
+	margin-right: 10px;
+	padding: 10px;
+	font-size: 13px;
+	background-color: #FFF;	
+}
+.veureDia {
+	width:416px;
+	height:383px;
+	/*background-image: url(../images/fondologin.png);*/
+	color: #5d5d5d;
+}
+.aliniadoderecha{
+	text-align: right;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	padding: 5px;
+	background-color: #B7E1D9;
+	margin-bottom: 5px;
+	}
+.fondotitulo{
+	color: #FFF;
+	background-color: #6CB2BA;
+	}
+.trFila1{
+	background-color: #E5E5E5;
+	}
+.trFila2{
+	background-color: #F8F8F8;
+	}
+.trBrillo{
+	background-color: #FFDCB9;
+}
+
+.capaavisos {
+	float: left;
+	background: #009933;
+	background: linear-gradient(top, #009933 0%, #093 100%);
+	background: -moz-linear-gradient(top, #009933 0%, #093 100%);
+	background: -webkit-linear-gradient(top, #009933 0%,#093 100%)
+	border: 2px solid #006600;
+	width: 770px;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	box-shadow: inset 0 0 8px #dcddde;
+	-moz-box-shadow: inset 0 0 8px #dcddde;
+	-webkit-box-shadow: inset 0 0 8px #dcddde;
+	/*background-image: url(../images/fondo.jpg);*/
+	background-repeat: repeat-x;
+	background-position: center top;
+	font-size: 13px;
+	color: #000000;
+	margin-bottom: 10px;
+	padding-top: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	padding-left: 180px;
+}
+/**************************************************************************
+/**************************************************************************
+/**************************************************************************
+/*ESTILOS DEL MENÚ*/
+nav ul ul {
+	display: none;
+}
+
+	nav ul li:hover > ul {
+		display: block;
+	}
+nav ul {
+	background: #efefef; 
+	background: linear-gradient(top, #efefef 0%, #bbbbbb 100%);  
+	background: -moz-linear-gradient(top, #efefef 0%, #bbbbbb 100%); 
+	background: -webkit-linear-gradient(top, #efefef 0%,#bbbbbb 100%); 
+	/*box-shadow: 0px 0px 9px rgba(0,0,0,0.15);*/
+	padding: 0 10px;
+	list-style: none;
+	position: relative;
+	display: inline-table;
+	margin-bottom:10px;
+}
+	nav ul:after {
+		content: ""; clear: both; display: block;
+	}
+nav ul li {
+	float: left;
+}
+	nav ul li:hover {
+		background: #4b545f;
+		background: linear-gradient(top, #4f5964 0%, #5f6975 40%);
+		background: -moz-linear-gradient(top, #4f5964 0%, #5f6975 40%);
+		background: -webkit-linear-gradient(top, #4f5964 0%,#5f6975 40%);
+	}
+		nav ul li:hover a {
+			color: #fff;
+		}
+	
+	nav ul li a {
+		display: block; padding: 5px 20px;
+		color: #757575; text-decoration: none;
+	}
+nav ul ul {
+	background: #5f6975; border-radius: 0px; padding: 0;
+	position: absolute; top: 100%;
+}
+	nav ul ul li {
+		float: none; 
+		border-top: 1px solid #6b727c;
+		border-bottom: 1px solid #575f6a;
+		position: relative;
+		z-index:100;
+	}
+		nav ul ul li a {
+			padding: 5px 20px;
+			color: #fff;
+		}	
+			nav ul ul li a:hover {
+				background: #4b545f;
+			}
+nav ul ul ul {
+	position: absolute; left: 100%; top:0;
+}
+.textoPie{
+	width: 500px;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 30px;
+	color: #21A5F3;
+	font-weight: lighter;
+}
+.Acceso{
+	font-size: 16px;
+	color: #666;
+	font-weight: bolder;
+	text-transform: none;
+	font-style: italic;
+	line-height: 10px;
+	}
+.textonombreoie{
+padding-left: 30px;
+color:#CEFAFF;
+font:normal 11pt Arial;
+color:#0033CC;
+text-shadow: 0 1px 0 #ccc,
+0 2px 0 #c9c9c9,
+0 3px 0 #bbb,
+0 4px 0 #b9b9b9,
+0 5px 0 #aaa,
+0 6px 1px rgba(0,0,0,.1),
+0 0 5px rgba(0,0,0,.1),
+0 1px 3px rgba(0,0,0,.3),
+0 3px 5px rgba(0,0,0,.2),
+0 5px 10px rgba(0,0,0,.25),
+0 10px 10px rgba(0,0,0,.2),
+0 20px 20px rgba(0,0,0,.15);
+	padding-right: 30px;
+}
+.cerrarsecion{
+	color: #666;
+	font-weight: bold;
+}
+.brillo:hover{
+	font-size: 15px;
+	width: 100%;
+	color: #666;
+	}
+	.estiloLetra{
+	font-size: 14px;
+	font-weight: bolder;
+	/*color: #006;*/
+	text-decoration: none;
+  color: #222;
+  text-shadow: 3px 3px 0px rgba(255,255,255,.2); - See more at: http://fedesilva.com/blog/2011/06/efectos-de-texto-con-css3-y-text-shadow#sthash.6KyKtrM6.dpuf/
+	}
+.menu{
+	}
+.active{
+	color: #000;
+	}
+.menu{
+	color: #F00;
+	}
+/*efecto 3d*/
+.pagina{
+direction: rtl;
+color:#CEFAFF;
+font:normal 10pt Arial;
+color:#0033CC;
+text-shadow: 0 1px 0 #ccc,
+0 2px 0 #c9c9c9,
+0 3px 0 #bbb,
+0 4px 0 #b9b9b9,
+0 5px 0 #aaa,
+0 6px 1px rgba(0,0,0,.1),
+0 0 5px rgba(0,0,0,.1),
+0 1px 3px rgba(0,0,0,.3),
+0 3px 5px rgba(0,0,0,.2),
+0 5px 10px rgba(0,0,0,.25),
+0 10px 10px rgba(0,0,0,.2),
+0 20px 20px rgba(0,0,0,.15);
+	}
+
+.fotos1{
+float: left;
+width: 180px;
+height: 135px;
+}
+.radio{
+	float: right;
+	margin-right: 45%;
+}
